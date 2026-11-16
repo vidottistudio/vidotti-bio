@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vidotti Studio · Portfólio</title>
+<style>
+@font-face { font-family: "Instrument Serif"; src: url(fonts/InstrumentSerif-Regular.ttf); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url(fonts/InstrumentSerif-Italic.ttf); }
+@font-face { font-family: "DM Sans"; font-weight: 100 900; src: url(fonts/DMSans.ttf); }
+@font-face { font-family: "DM Sans"; font-style: italic; font-weight: 100 900; src: url(fonts/DMSans-Italic.ttf); }
+@page { size: 1600px 900px; margin: 0; }
+:root {
+  --vinho: #4A1424; --fundo: #3A0F1C; --vinho-claro: #6B2236;
+  --creme: #F2E4CF; --creme-suave: rgba(242,228,207,.72); --linha: rgba(242,228,207,.22);
+  --papel: #F7EEE1; --tinta: #3A0F1C; --tinta-suave: rgba(58,15,28,.72); --linha-escura: rgba(58,15,28,.18);
+  --card: #FDFAF0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "DM Sans", sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.pg { width: 1600px; height: 900px; position: relative; overflow: hidden; page-break-after: always; padding: 96px 120px; }
+.pg:last-child { page-break-after: auto; }
+.escura { background: radial-gradient(120% 1200px at 20% 0%, var(--vinho) 0%, var(--fundo) 75%); color: var(--creme); }
+.clara { background: var(--papel); color: var(--tinta); }
+.serif { font-family: "Instrument Serif", serif; font-weight: 400; }
+.eyebrow { font-size: 15px; letter-spacing: .28em; text-transform: uppercase; font-weight: 500; }
+.escura .eyebrow { color: var(--creme-suave); }
+.clara .eyebrow { color: var(--vinho-claro); }
+.num { position: absolute; bottom: 56px; right: 120px; font-size: 14px; letter-spacing: .2em; opacity: .55; }
+.rodape-logo { position: absolute; bottom: 48px; left: 120px; height: 30px; opacity: .9; }
+h2.titulo { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 64px; line-height: 1.05; margin-top: 18px; }
+h2.titulo em { font-style: italic; }
+.escura h2.titulo em { color: var(--creme-suave); }
+.clara h2.titulo em { color: var(--vinho-claro); }
+.estrela { display: inline-block; width: 18px; height: 18px; vertical-align: middle; }
+
+/* capa */
+.capa { display: flex; flex-direction: column; justify-content: space-between; }
+.capa .logo { width: 560px; margin-top: 40px; }
+.capa .frase { font-family: "Instrument Serif", serif; font-size: 76px; line-height: 1.04; }
+.capa .frase span { display: block; }
+.capa .frase span + span { font-style: italic; color: var(--creme-suave); }
+.capa .sub { margin-top: 26px; font-size: 22px; color: var(--creme-suave); }
+.capa .base { display: flex; justify-content: space-between; border-top: 1px solid var(--linha); padding-top: 22px; font-size: 16px; letter-spacing: .12em; color: var(--creme-suave); }
+.capa .star-grande { position: absolute; right: 120px; top: 120px; width: 120px; opacity: .9; }
+
+/* estudio */
+.duas { display: grid; grid-template-columns: 1.35fr 1fr; gap: 90px; align-items: center; height: 100%; }
+.texto p { font-size: 21px; line-height: 1.6; color: var(--tinta-suave); margin-top: 22px; max-width: 46ch; }
+.texto p strong { color: var(--tinta); font-weight: 500; }
+.foto-box { position: relative; justify-self: end; }
+.foto-box img { width: 400px; height: 560px; object-fit: cover; border-radius: 220px 220px 18px 18px; display: block; }
+.foto-box .leg { margin-top: 18px; font-size: 16px; color: var(--tinta-suave); }
+.foto-box .leg b { display: block; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 28px; color: var(--tinta); }
+.painel { justify-self: end; width: 440px; background: var(--vinho); color: var(--creme); border-radius: 26px; padding: 52px 48px; }
+.painel .big { font-family: "Instrument Serif", serif; font-size: 140px; line-height: .9; }
+.painel .big-leg { font-size: 19px; color: var(--creme-suave); margin-top: 10px; line-height: 1.45; }
+.painel ul { list-style: none; margin-top: 36px; border-top: 1px solid var(--linha); }
+.painel li { font-family: "Instrument Serif", serif; font-size: 27px; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+.selo { position: absolute; left: -64px; bottom: 120px; width: 150px; height: 150px; border-radius: 50%; background: var(--vinho); color: var(--creme); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.selo b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 52px; line-height: 1; }
+.selo span { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; color: var(--creme-suave); }
+
+/* principios */
+.tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-top: 80px; }
+.tres .item { border-top: 1px solid var(--linha); padding-top: 28px; }
+.tres .n { font-family: "Instrument Serif", serif; font-style: italic; font-size: 30px; color: var(--creme-suave); }
+.tres h3 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 36px; line-height: 1.12; margin-top: 14px; }
+.tres p { font-size: 18.5px; line-height: 1.6; color: var(--creme-suave); margin-top: 16px; }
+
+/* solucoes */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+.card { background: var(--card); border: 1px solid var(--linha-escura); border-radius: 22px; padding: 40px 36px; display: flex; flex-direction: column; min-height: 420px; }
+.card .tag { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--vinho-claro); font-weight: 500; }
+.card h3 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 42px; line-height: 1.05; margin-top: 16px; }
+.card p { font-size: 18px; line-height: 1.6; color: var(--tinta-suave); margin-top: 18px; }
+.card ul { list-style: none; margin-top: auto; padding-top: 22px; border-top: 1px solid var(--linha-escura); }
+.card li { font-size: 16px; color: var(--tinta); padding: 5px 0 5px 22px; position: relative; }
+.card li::before { content: "✦"; position: absolute; left: 0; color: var(--vinho-claro); font-size: 12px; top: 8px; }
+.card.destaque { background: var(--vinho); color: var(--creme); border-color: var(--vinho); }
+.card.destaque .tag { color: var(--creme-suave); }
+.card.destaque p { color: var(--creme-suave); }
+.card.destaque ul { border-top-color: var(--linha); }
+.card.destaque li { color: var(--creme); }
+.card.destaque li::before { color: var(--creme-suave); }
+.nota { margin-top: 30px; font-size: 17px; color: var(--tinta-suave); }
+.nota b { color: var(--tinta); font-weight: 500; }
+
+/* processo */
+.passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 90px; position: relative; }
+.passos::before { content: ""; position: absolute; top: 36px; left: 36px; right: 0; height: 1px; background: var(--linha); }
+.passo .bola { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--creme); background: var(--fundo); display: flex; align-items: center; justify-content: center; font-family: "Instrument Serif", serif; font-style: italic; font-size: 28px; position: relative; }
+.passo h3 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 34px; margin-top: 30px; }
+.passo p { font-size: 18px; line-height: 1.6; color: var(--creme-suave); margin-top: 14px; }
+
+/* case */
+.case-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 90px; margin-top: 48px; }
+.case-grid .lado p { font-size: 20px; line-height: 1.6; color: var(--tinta-suave); margin-top: 18px; }
+.case-grid .lado .meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.pill { font-size: 14px; letter-spacing: .08em; border: 1px solid var(--linha-escura); border-radius: 999px; padding: 8px 16px; color: var(--tinta); }
+.entregas { list-style: none; }
+.bn-linha { display: flex; align-items: center; gap: 44px; margin-top: 30px; }
+.bn-linha img { width: 200px; display: block; }
+.bn-num b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 84px; line-height: .95; display: block; color: var(--vinho); }
+.bn-num span { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-suave); line-height: 1.4; display: block; margin-top: 8px; }
+.fort { color: var(--tinta); font-weight: 500; }
+.case-logo { margin-top: 30px; width: 230px; }
+.case-logo img { width: 100%; display: block; }
+.galeria { display: grid; grid-template-columns: auto auto; gap: 60px; margin-top: 44px; align-items: start; }
+.galeria figure img { display: block; border-radius: 16px; box-shadow: 0 18px 40px rgba(58,15,28,.18); }
+.galeria figcaption { font-size: 16px; color: var(--tinta-suave); margin-top: 14px; line-height: 1.5; max-width: 60ch; }
+.galeria figcaption b { color: var(--tinta); font-weight: 500; }
+.tyc { display: grid; grid-template-columns: 1.15fr auto; gap: 80px; height: 100%; align-items: center; }
+.tyc p { font-size: 19px; line-height: 1.6; color: var(--creme-suave); margin-top: 16px; max-width: 54ch; }
+.tyc p b { color: var(--creme); font-weight: 500; }
+.tyc .salto { display: flex; align-items: baseline; gap: 22px; margin-top: 30px; }
+.tyc .salto b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 76px; line-height: 1; }
+.tyc .salto .de { color: var(--creme-suave); }
+.tyc .salto span { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: var(--creme-suave); }
+.tyc ul { list-style: none; margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+.tyc li { font-size: 17px; line-height: 1.45; padding: 12px 0 12px 24px; border-top: 1px solid var(--linha); position: relative; }
+.tyc li::before { content: "✦"; position: absolute; left: 0; top: 14px; font-size: 12px; color: var(--creme-suave); }
+.tyc-logo { margin-top: 26px; }
+.tyc-logo img { height: 40px; display: block; }
+.tyc .feed { height: 720px; border-radius: 18px; display: block; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.entregas li { display: grid; grid-template-columns: 56px 1fr; padding: 22px 0; border-top: 1px solid var(--linha-escura); }
+.entregas li:last-child { border-bottom: 1px solid var(--linha-escura); }
+.entregas .n { font-family: "Instrument Serif", serif; font-style: italic; font-size: 26px; color: var(--vinho-claro); }
+.entregas b { font-weight: 500; font-size: 20px; display: block; }
+.entregas span { font-size: 17px; color: var(--tinta-suave); line-height: 1.55; display: block; margin-top: 4px; }
+
+/* marcas */
+.logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 54px; }
+.logo-card { background: #FDFAF0; border: 1px solid var(--linha-escura); border-radius: 18px; height: 130px; display: flex; align-items: center; justify-content: center; padding: 18px 26px; }
+.logo-card img { max-width: 100%; max-height: 92px; object-fit: contain; }
+.logo-card .nome { font-family: "Instrument Serif", serif; font-size: 32px; text-align: center; line-height: 1.05; color: var(--tinta); }
+.logo-card .nome small { display: block; font-family: "DM Sans"; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--tinta-suave); margin-top: 6px; }
+.logo-card.proxima { background: var(--vinho); border-color: var(--vinho); }
+.logo-card.proxima .nome { color: var(--creme); font-size: 30px; }
+.logo-card.proxima .nome em { color: var(--creme-suave); }
+.logo-card.proxima .nome small { color: var(--creme-suave); }
+.segmentos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+.segmentos div { border-top: 1px solid var(--linha-escura); padding-top: 18px; }
+.segmentos b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 26px; display: block; }
+.segmentos span { font-size: 16.5px; color: var(--tinta-suave); line-height: 1.55; display: block; margin-top: 8px; }
+
+/* autoral */
+.autoral { display: grid; grid-template-columns: 1.4fr 1fr; gap: 90px; align-items: center; height: 100%; }
+.autoral p { font-size: 21px; line-height: 1.6; color: var(--creme-suave); margin-top: 22px; max-width: 46ch; }
+.autoral p b { color: var(--creme); font-weight: 500; }
+.numeros { display: flex; gap: 56px; margin-top: 44px; }
+.numeros div b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 64px; line-height: 1; display: block; }
+.numeros div span { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--creme-suave); }
+.celular { justify-self: center; width: 330px; border-radius: 34px; border: 10px solid #1b060c; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.35); background: #fff; }
+.celular img { width: 100%; display: block; }
+
+/* contato */
+.contato { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.contato .logo { width: 380px; }
+.contato h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 84px; line-height: 1.04; margin-top: 64px; }
+.contato h2 em { color: var(--creme-suave); }
+.contato p.sub { font-size: 22px; color: var(--creme-suave); margin-top: 22px; max-width: 46ch; line-height: 1.5; }
+.contatos { display: flex; gap: 18px; margin-top: 52px; }
+.contatos div { border: 1px solid var(--linha); border-radius: 999px; padding: 16px 30px; font-size: 19px; }
+.contatos div.principal { background: var(--creme); color: var(--vinho); border-color: var(--creme); font-weight: 500; }
+.contato .site { position: absolute; bottom: 56px; font-size: 15px; letter-spacing: .2em; color: var(--creme-suave); }
+
+@media screen {
+  html { background: #2a0a14; }
+  body { padding: 0; }
+  .pg { zoom: var(--s, 1); margin: 0 auto 16px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+}
+</style>
+<script>
+{ const fit=()=>{const s=Math.min(1,(document.documentElement.clientWidth)/1600);document.documentElement.style.setProperty('--s',s)};fit();addEventListener('resize',fit); }
+</script>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<section class="pg escura capa">
+
+  <div>
+    <div class="eyebrow">Portfólio · 2026</div>
+    <img class="logo" src="assets/bio2.png" alt="Vidotti Studio">
+  </div>
+  <div>
+    <h1 class="frase"><span>Clareza para posicionar.</span><span>Consistência para crescer.</span></h1>
+    <p class="sub">Estratégia, identidade e criação para negócios e marcas pessoais.</p>
+  </div>
+  <div class="base"><span>VIDOTTISTUDIO.COM.BR</span><span>@VIDOTTI.STUDIO</span></div>
+</section>
+
+<!-- 2 ESTUDIO -->
+<section class="pg clara">
+  <div class="duas">
+    <div class="texto">
+      <div class="eyebrow">01 · O estúdio</div>
+      <h2 class="titulo">Para negócios que já funcionam, <em>mas ainda não mostram por que merecem ser escolhidos.</em></h2>
+      <p>A Vidotti Studio é um estúdio de <strong>estratégia, identidade e criação</strong>. Ajudamos negócios e marcas pessoais a deixar claro o que os torna únicos, para que o cliente escolha você e não o concorrente maior ou mais barato.</p>
+      <p>Por trás do estúdio está a <strong>Adriely Vidotti</strong>, estrategista de marca e conteúdo com mais de 4 anos atendendo negócios locais, empresas B2B e marcas pessoais.</p>
+    </div>
+    <div class="painel">
+      <div class="big">+4</div>
+      <div class="big-leg">anos de estratégia de marca e conteúdo</div>
+      <ul>
+        <li>Gastronomia</li><li>Eventos e entretenimento</li><li>Turismo e seguro viagem</li><li>Arquitetura</li><li>Marcas pessoais</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <span class="num">02</span>
+</section>
+
+<!-- 3 COMO PENSAMOS -->
+<section class="pg escura">
+  <div class="eyebrow">02 · Como pensamos</div>
+  <h2 class="titulo">Antes de criar, <em>entendemos.</em></h2>
+  <div class="tres">
+    <div class="item">
+      <div class="n">I.</div>
+      <h3>O negócio por dentro</h3>
+      <p>O que você faz, como funciona a operação e o que só o seu negócio entrega. É daí que sai a diferença real, e não de tendência.</p>
+    </div>
+    <div class="item">
+      <div class="n">II.</div>
+      <h3>O olhar do cliente</h3>
+      <p>Nos colocamos no lugar de quem compra: o que essa pessoa pensa, sente e já consome. Assim descobrimos o motivo pelo qual ela escolheria você.</p>
+    </div>
+    <div class="item">
+      <div class="n">III.</div>
+      <h3>Estratégia que vira presença</h3>
+      <p>Posicionamento, identidade e conteúdo saem da mesma lógica. Testamos ângulos, acompanhamos os dados e ajustamos com base no que funciona, não em achismo.</p>
+    </div>
+  </div>
+  <img class="rodape-logo" src="assets/bio2.png" alt="">
+  <span class="num">03</span>
+</section>
+
+<!-- 4 SOLUCOES -->
+<section class="pg clara">
+  <div class="eyebrow">03 · Soluções</div>
+  <h2 class="titulo">Três formas de <em>trabalhar juntos.</em></h2>
+  <div class="cards">
+    <div class="card">
+      <div class="tag">Ponto de partida</div>
+      <h3>Diagnóstico</h3>
+      <p>Análise do seu negócio, do mercado e da comunicação atual, com um plano de ação claro para seguir.</p>
+      <ul><li>Leitura do negócio e da concorrência</li><li>Avaliação das redes e da marca</li><li>Plano de ação priorizado</li></ul>
+    </div>
+    <div class="card destaque">
+      <div class="tag">Do zero ou reposicionamento</div>
+      <h3>Projeto de marca</h3>
+      <p>Para quem está abrindo um negócio, se reposicionando ou sente que a marca não traduz quem é.</p>
+      <ul><li>Posicionamento</li><li>Identidade visual</li><li>Estratégia para 6 meses</li></ul>
+    </div>
+    <div class="card">
+      <div class="tag">Contínuo</div>
+      <h3>Gestão de redes sociais</h3>
+      <p>Estratégia de conteúdo, organização do perfil, planejamento, produção e publicação.</p>
+      <ul><li>Com ou sem captação presencial</li><li>Calendário e aprovação organizados</li><li>Acompanhamento de resultados</li></ul>
+    </div>
+  </div>
+  <p class="nota"><b>Começar pelo diagnóstico não é custo extra:</b> se o projeto for fechado em até 30 dias, o valor é abatido.</p>
+  <span class="num">04</span>
+</section>
+
+<!-- 6 CASE -->
+<section class="pg clara">
+  <div class="eyebrow">04 · Case</div>
+  <h2 class="titulo">Barba Negra <em>Hamburgueria e Bar</em></h2>
+  <div class="case-grid">
+    <div class="lado">
+      <p>Nasceu como um hookah lounge conhecido em Piracicaba. Para virar hamburgueria autoral à noite e marmitaria delivery de dia, o posicionamento precisou mudar <b class="fort">por completo</b>.</p>
+      <div class="bn-linha">
+        <img src="assets/bn_logo.png" alt="Barba Negra">
+        <div class="bn-num"><b>+2 mil</b><span>clientes por mês<br>no delivery</span></div>
+      </div>
+      <p>Agora o desafio é levar esse público para o salão, mostrando por que vale sair de casa para viver o Barba Negra.</p>
+      <div class="meta"><span class="pill">Gastronomia</span><span class="pill">Negócio local</span><span class="pill">Em andamento</span></div>
+    </div>
+    <ul class="entregas">
+      <li><span class="n">01</span><div><b>Reposicionamento completo</b><span>De lounge para hamburgueria e marmitaria: história, DNA, diferenciais, mapeamento de produtos e análise dos concorrentes da região.</span></div></li>
+      <li><span class="n">02</span><div><b>Perfil reorganizado</b><span>Bio mais limpa, destaques por serviço (burger, marmita e salão) e informações de horário em um só lugar.</span></div></li>
+      <li><span class="n">03</span><div><b>Do delivery para o salão</b><span>Folder enviado junto de cada pedido, apresentando as frentes da casa e convidando para a primeira visita.</span></div></li>
+      <li><span class="n">04</span><div><b>Conteúdo com história</b><span>Feed e cardápio que contam a origem da casa e as histórias por trás de cada burger.</span></div></li>
+    </ul>
+  </div>
+  <span class="num">05</span>
+</section>
+
+<!-- 6b BARBA IMAGENS -->
+<section class="pg clara">
+  <div class="eyebrow">04 · Case Barba Negra</div>
+  <h2 class="titulo">Da bio ao feed, <em>tudo apontando para a mesma direção.</em></h2>
+  <div class="galeria">
+    <figure><img src="assets/bn_feed.jpg" style="height:540px" alt="Feed do Barba Negra"><figcaption><b>Feed</b> com produto, drinks e convite para a casa.</figcaption></figure>
+    <figure><img src="assets/bn_antesdepois.jpg" style="height:460px" alt="Perfil antes e depois"><figcaption><b>Perfil antes e depois.</b> A bio estava poluída de informação: levamos os detalhes para destaques organizados por serviço, deixamos claro o que a casa faz, incluímos um ponto de autoridade (+2.000 pedidos por mês, Top 1 no 99Food e Selo Super Experiência no iFood) e trocamos dois links por um só, com contato e pedidos.</figcaption></figure>
+  </div>
+  <span class="num">06</span>
+</section>
+
+<!-- 6c TYCKET -->
+<section class="pg escura">
+  <div class="tyc">
+    <div>
+      <div class="eyebrow">05 · Case</div>
+      <div class="tyc-logo"><img src="assets/l_tycket_branco.png" alt="Tycket"></div>
+      <h2 class="titulo">Tycket <em>Tiqueteria e tecnologia para eventos</em></h2>
+      <p>Tiqueteria de Piracicaba que já falava bem com o mercado B2B, os produtores de eventos. O desafio era <b>conquistar também o público final</b>: fazer as pessoas conhecerem a Tycket e quererem ir aos eventos dela, mostrando que ela é mais do que uma plataforma de ingressos, com o sistema Syscash, cartões de consumo e experiência no evento.</p>
+      <div class="salto"><b class="de">9 mil</b><span>→</span><b>17 mil</b><span>seguidores</span></div>
+      <ul>
+        <li>Público final mais engajado com os eventos</li>
+        <li>Novos produtores de eventos alcançados</li>
+        <li>Conteúdos em collab com artistas</li>
+        <li>A Tycket virou parceira dos produtores, ajudando inclusive com conteúdo para eles</li>
+      </ul>
+    </div>
+    <img class="feed" src="assets/tycket_feed.jpg" alt="Feed da Tycket">
+  </div>
+  <span class="num">07</span>
+</section>
+
+<!-- 7 MARCAS -->
+<section class="pg clara">
+  <div class="eyebrow">06 · Experiência</div>
+  <h2 class="titulo">Marcas que <em>já passaram por aqui.</em></h2>
+  <div class="logos">
+    <div class="logo-card"><img src="assets/l_now.png" alt="NOW Assistance"></div>
+    <div class="logo-card"><img src="assets/l_pesquisar.png" alt="Pesquisar Seguro Viagem"></div>
+    <div class="logo-card"><img src="assets/l_findway.png" alt="FindWay Travel"></div>
+    <div class="logo-card"><img src="assets/l_ticket.png" alt="Tycket"></div>
+    <div class="logo-card"><img src="assets/l_mf.png" alt="MF Arquitetura"></div>
+    <div class="logo-card"><img src="assets/bn_logo.png" alt="Barba Negra"></div>
+    <div class="logo-card"><div class="nome">Victoria Piovaccari<small>Psicologia</small></div></div>
+    <div class="logo-card proxima"><div class="nome">A próxima pode ser <em>a sua.</em></div></div>
+  </div>
+  <div class="segmentos">
+    <div><b>Turismo, seguro viagem e eventos</b><span>Diagnóstico, estratégia e conteúdo para Instagram, LinkedIn, Facebook e TikTok, com sistemas visuais próprios para cada marca.</span></div>
+    <div><b>Gastronomia e negócios locais</b><span>Posicionamento, organização do perfil e ações para levar o cliente do digital para o espaço físico.</span></div>
+    <div><b>Marcas pessoais e serviços</b><span>Estratégia de conteúdo para profissionais que vendem pela confiança de quem explica a solução.</span></div>
+  </div>
+  <span class="num">08</span>
+</section>
+
+<!-- 9 CONTATO -->
+<section class="pg escura contato">
+  <img class="logo" src="assets/bio2.png" alt="Vidotti Studio">
+  <h2>Vamos conversar sobre <em>o seu negócio?</em></h2>
+  <p class="sub">Um papo sem compromisso para entender o seu momento e mostrar por onde começar.</p>
+  <div class="contatos">
+    <div class="principal">WhatsApp (19) 99377-1932</div>
+    <div>oi@vidottistudio.com.br</div>
+    <div>@vidotti.studio</div>
+  </div>
+  <span class="site">VIDOTTISTUDIO.COM.BR</span>
+</section>
+
+</body>
+</html>
