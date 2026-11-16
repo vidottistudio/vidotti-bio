@@ -166,13 +166,13 @@ h2.titulo em { font-style: italic; }
 .contato .site { position: absolute; bottom: 56px; font-size: 15px; letter-spacing: .2em; color: var(--creme-suave); }
 
 @media screen {
-  html { background: #2a0a14; }
+  html { background: #2a0a14; scrollbar-gutter: stable; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
   body { padding: 0; }
   .pg { zoom: var(--s, 1); margin: 0 auto 16px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
 }
 </style>
 <script>
-{ const fit=()=>{const s=Math.min(1,(document.documentElement.clientWidth)/1600);document.documentElement.style.setProperty('--s',s)};fit();addEventListener('resize',fit); }
+{ const fit=()=>{const s=Math.min(1,(document.documentElement.clientWidth)/1600);document.documentElement.style.setProperty('--s',s)};fit();addEventListener('resize',fit);addEventListener('DOMContentLoaded',fit);addEventListener('load',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(document.documentElement); }
 </script>
 </head>
 <body>
@@ -294,8 +294,8 @@ h2.titulo em { font-style: italic; }
   <div class="eyebrow">04 · Case Barba Negra</div>
   <h2 class="titulo">Da bio ao feed, <em>tudo apontando para a mesma direção.</em></h2>
   <div class="galeria">
-    <figure><img src="assets/bn_feed.jpg" style="height:540px" alt="Feed do Barba Negra"><figcaption><b>Feed</b> com produto, drinks e convite para a casa.</figcaption></figure>
-    <figure><img src="assets/bn_antesdepois.jpg" style="height:460px" alt="Perfil antes e depois"><figcaption><b>Perfil antes e depois.</b> A bio estava poluída de informação: levamos os detalhes para destaques organizados por serviço, deixamos claro o que a casa faz, incluímos um ponto de autoridade (+2.000 pedidos por mês, Top 1 no 99Food e Selo Super Experiência no iFood) e trocamos dois links por um só, com contato e pedidos.</figcaption></figure>
+    <figure><img src="assets/bn_feed.jpg" style="height:500px" alt="Feed do Barba Negra"><figcaption><b>Feed</b> com produto, drinks e convite para a casa.</figcaption></figure>
+    <figure><img src="assets/bn_antesdepois.jpg" style="height:430px" alt="Perfil antes e depois"><figcaption><b>Perfil antes e depois.</b> A bio estava poluída de informação: levamos os detalhes para destaques organizados por serviço, deixamos claro o que a casa faz, incluímos um ponto de autoridade (+2.000 pedidos por mês, Top 1 no 99Food e Selo Super Experiência no iFood) e trocamos dois links por um só, com contato e pedidos.</figcaption></figure>
   </div>
   <span class="num">06</span>
 </section>
